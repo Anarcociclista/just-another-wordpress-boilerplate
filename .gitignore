@@ -1,0 +1,5 @@
+vendor
+src/*
+!src/wp-content/
+!src/wp-content/themes/*
+!src/wp-content/plugins/*

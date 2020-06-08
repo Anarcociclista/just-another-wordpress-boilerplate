@@ -1,0 +1,28 @@
+version: '3.1'
+services:
+  wordpress:
+    image: wordpress:php7.4
+    restart: always
+    ports:
+      - 8080:80
+    environment:
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: anarcociclista
+      WORDPRESS_DB_PASSWORD: strongpassword
+      WORDPRESS_DB_NAME: wordpress
+    volumes:
+      - ./src:/var/www/html
+
+  db:
+    image: mariadb:10.5.3
+    restart: always
+    environment:
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: anarcociclista
+      MYSQL_PASSWORD: strongpassword
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+    volumes:
+      - db:/var/lib/mysql
+
+volumes:
+  db:
