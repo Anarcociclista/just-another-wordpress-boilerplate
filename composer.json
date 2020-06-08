@@ -1,0 +1,29 @@
+{
+  "name": "anarcociclista/just-another-wordpress-boilerplate",
+  "description": "A simple boilerplate for Wordpress, with Composer and Docker",
+  "license": "MIT",
+  "type": "project",
+  "repositories" : [
+    {
+        "type": "composer",
+        "url": "https://wpackagist.org"
+    }
+  ],
+  "require": {
+    "php": ">=7.1",
+    "johnpbloch/wordpress": "5.4.*",
+    "wpackagist-plugin/advanced-custom-fields": "*"
+  },
+  "extra": {
+    "wordpress-install-dir": "./src",
+    "installer-paths": {
+      "src/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "src/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+  }
+  },
+  "autoload": {
+    "psr-0": {
+        "Acme": "src/"
+    }
+  }
+}
