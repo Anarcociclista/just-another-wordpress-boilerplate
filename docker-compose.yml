@@ -1,15 +1,11 @@
 version: '3.1'
 services:
-  wordpress:
-    image: wordpress:php7.4
+  webserver:
+    build: ./docker/php/
     restart: always
     ports:
       - 8080:80
-    environment:
-      WORDPRESS_DB_HOST: db
-      WORDPRESS_DB_USER: anarcociclista
-      WORDPRESS_DB_PASSWORD: strongpassword
-      WORDPRESS_DB_NAME: wordpress
+    depends_on: [db]
     volumes:
       - ./src:/var/www/html
 
